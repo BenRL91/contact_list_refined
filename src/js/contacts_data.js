@@ -7,7 +7,7 @@ export default [
     location: 'Atlanta, GA',
     id: 'AB123'
   },
-  { imageURL: 'http://fillMurray.com/1200/1200',
+  { imageURL: 'http://fillMurray.com/500/500',
     name: 'Brit Butler',
     email: 'brit@theironyard.com',
     number: '555-123-4567',
@@ -21,7 +21,7 @@ export default [
     location: 'Atlanta, GA',
     id: 'CD456'
   },
-  { imageURL: 'http://fillMurray.com/1000/1000',
+  { imageURL: 'http://fillMurray.com/700/700',
     name: 'Tim Whitacre',
     email: 'tim@theironyard.com',
     number: '555-123-4569',

@@ -10,7 +10,7 @@ export default class ContactList extends Component {
     let {onContactSelect} = this.props
 
     return (
-      <li onClick={onContactSelect.bind(null, user)}>
+      <li key={user.id} onClick={onContactSelect.bind(null, user)}>
         <img src={user.imageURL}/>
         {user.name}
       </li>
@@ -19,6 +19,7 @@ export default class ContactList extends Component {
     let {info} = this.props
     return (
       <div className='contact-list'>
+        <h1>My Murrays</h1>
         <ul>
           {info.map(::this.makeListItem)}
         </ul>

@@ -12,7 +12,9 @@ export default class ContactDetails extends React.Component {
     return (
       <div className='contact-details'>
         <div className='top'>
-          <button onClick={goBack}></button>
+          <button onClick={goBack}>
+            {/*<i className='fa fa-arrow-left'/>*/}
+          </button>
           <img src={user.imageURL} alt={user.name}/>
         </div>
         <ul>
