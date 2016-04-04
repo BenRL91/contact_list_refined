@@ -1,5 +1,6 @@
 /* CSS Entry Point */
 @import 'font-awesome';
+@import 'normalize';
 
 $bgGreen: #81BC39;
 
@@ -15,6 +16,15 @@ img {
 }
 .contact-list {
   font-size: 15px;
+  button {
+    background: $bgGreen;
+    color: white;
+    font-family: arial;
+    font-size: 14px;
+    border: 0;
+    border-bottom-right-radius: 10px;
+
+  }
   img {
   height: 50px;
   margin-left: 10px;
@@ -28,6 +38,7 @@ img {
     background: $bgGreen;
     margin: 0;
     padding: 10px 0px 10px 20px;
+    border-bottom-right-radius: 10px;
   }
   ul {
   margin: 0;
