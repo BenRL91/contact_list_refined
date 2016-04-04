@@ -5,16 +5,20 @@ export default class ContactList extends Component {
   static propTypes = {
     info: PropTypes.array.isRequired,
     onContactSelect: PropTypes.func.isRequired,
-    setContactDetails: PropTypes.func.isRequired
+    setContactDetails: PropTypes.func.isRequired,
+    removeCon: PropTypes.func.isRequired
   };
   makeListItem(user){
-    let {onContactSelect} = this.props
+    let {onContactSelect, removeCon} = this.props
 
     return (
-      <li key={user.name} onClick={onContactSelect.bind(null, user)}>
-        <img src={user.imageURL}/>
-        {user.name}
-      </li>
+      <div key={user.imageURL}>
+        <li key={user.name} onClick={onContactSelect.bind(null, user)}>
+          <img src={user.imageURL}/>
+          {user.name}
+        </li>
+        <button key={user.number} onClick={removeCon.bind(null,user)}>X</button>
+      </div>
     )}
   render() {
     let {info, setContactDetails} = this.props

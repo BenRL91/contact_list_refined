@@ -21,6 +21,7 @@ function renderContactList(){
   info={CONTACTS_DATA}
   onContactSelect={renderContactDetails}
   setContactDetails={newContactDetails}
+  removeCon={removeContact}
   />,
   document.querySelector('.app')
 )}
@@ -37,4 +38,9 @@ function newContactDetails(){
   )
 }
 
+function removeContact(user){
+  var x = CONTACTS_DATA.indexOf(user)
+  CONTACTS_DATA.splice(x, 1);
+  renderContactList();
+}
 renderContactList()
