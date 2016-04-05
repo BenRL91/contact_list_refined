@@ -9,32 +9,28 @@ export default class NewContactForm extends Component {
   render() {
     let {addToContacts} = this.props
     return (
-      <SimpleSerialForm onData={addToContacts}>
+      <SimpleSerialForm className='ssf' onData={addToContacts}>
+        <h1>Add New Murray</h1>
         <label>
           Full Name:
           <input type='text' name='name'/>
         </label>
-        <br/>
         <label>
           E-mail:
           <input type='text' name='email'/>
         </label>
-        <br/>
         <label>
           Phone:
           <input type='text' name='number'/>
         </label>
-        <br/>
         <label>
           Location:
           <input type='text' name='location'/>
         </label>
-        <br/>
         <label>
           Image URL:
           <input type='text' name='imageURL'/>
         </label>
-        <br/>
         <button>Create Contact</button>
         {/*<button onClick={goBack}>Go Back</button>*/}
       </SimpleSerialForm>

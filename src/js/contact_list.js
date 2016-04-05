@@ -12,7 +12,7 @@ export default class ContactList extends Component {
     let {onContactSelect, removeCon} = this.props
 
     return (
-      <div key={user.imageURL}>
+      <div className="conWrapper" key={user.imageURL}>
         <li key={user.name} onClick={onContactSelect.bind(null, user)}>
           <img src={user.imageURL}/>
           {user.name}

@@ -11,6 +11,7 @@ img {
   height: 550px;
   width: 450px;
   margin: auto;
+  margin-top: 50px;
   position: relative;
   border: 1px solid #E7E7E7;
 }
@@ -49,11 +50,15 @@ img {
       align-items: center;
       padding-top: 5px;
       padding-bottom: 5px;
-      border-bottom: 1px solid #E7E7E7;
     }
   }
 }
 
+.conWrapper {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #E7E7E7;
+}
 .contact-details {
   .top {
     display: flex;
@@ -89,6 +94,29 @@ img {
         margin: 10px;
       }
     }
-
   }
+}
+.ssf {
+  display: flex;
+  flex-direction: column;
+}
+h1 {
+  background: $bgGreen;
+  color: white;
+  margin: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  input {
+    width: 75%;
+  }
+}
+button {
+  background: $bgGreen;
+  color: white;
+  border: 0;
 }
