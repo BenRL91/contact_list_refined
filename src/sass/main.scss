@@ -76,6 +76,11 @@ img {
       left: 0px;
       height: 60px;
       width: 60px;
+      &.edit {
+        position: absolute;
+        top: 0px;
+        left: 50px;
+      }
       i {
         font-size: 20px;
       }
@@ -119,4 +124,16 @@ button {
   background: $bgGreen;
   color: white;
   border: 0;
+}
+.dropzone {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 200px;
+  .previewImage {
+    width: 180px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 0px;
+  }
 }
