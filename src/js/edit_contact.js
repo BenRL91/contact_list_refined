@@ -21,7 +21,7 @@ clickHandler(){
 }
 dropHandler([file]){
   this.setState({
-    user: {
+    editedUser: {
       imageURL: file.preview
     }
   })
@@ -41,7 +41,7 @@ dataHandler(editedUser){
         <SimpleSerialForm onData={::this.dataHandler} className='contact-details'>
           <div className='top'>
               <Dropzone className='dropzone' onDrop={::this.dropHandler}>
-                <img className='previewImage' src={user.imageURL}/>
+                <img className='previewImage' src={editedUser.imageURL}/>
               </Dropzone>
           </div>
           <ul>
