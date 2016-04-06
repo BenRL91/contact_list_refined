@@ -18,10 +18,22 @@ export default class NewContactForm extends Component {
       preview: file.preview
     })
   }
+    dataHandler(newUser){
+      let {addToContacts} = this.props
+      if (newUser.name
+      && newUser.email
+      && newUser.number
+      && newUser.location
+      && newUser.imageURL){
+        addToContacts(newUser)
+      }else {
+        alert('All fields are required.')
+      }
+  }
   render() {
     let {addToContacts} = this.props
     return (
-      <SimpleSerialForm className='ssf' onData={addToContacts}>
+      <SimpleSerialForm className='ssf' onData={::this.dataHandler}>
         <h1>Add New Murray</h1>
         <Dropzone className='dropzone' onDrop={::this.dropHandler}>
           <img className='previewImage' src={this.state.preview}/>

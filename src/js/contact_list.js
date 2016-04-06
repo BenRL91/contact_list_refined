@@ -17,7 +17,7 @@ export default class ContactList extends Component {
           <img src={user.imageURL}/>
           {user.name}
         </li>
-        <button key={user.number} onClick={removeCon.bind(null,user)}>X</button>
+        <button key={user.number} onClick={removeCon.bind(null, user)}>X</button>
       </div>
     )}
   render() {

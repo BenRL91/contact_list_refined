@@ -28,10 +28,18 @@ dropHandler([file]){
 }
 dataHandler(editedUser){
   let { user, saveContact } = this.props
+  if (editedUser.name
+  && editedUser.email
+  && editedUser.number
+  && editedUser.location
+  && editedUser.imageURL){
   this.setState({
     user: editedUser
   })
   saveContact(user, editedUser)
+} else {
+  alert('All fields are required.')
+  }
 }
   render() {
     let {user, onCancel} = this.props

@@ -19,11 +19,11 @@ function renderContactDetails(user){
 function alphabetize(a, b) {
   if (a.name.toLowerCase() > b.name.toLowerCase()) {
     return 1;
-  }
-  if (a.name.toLowerCase() < b.name.toLowerCase()) {
+  }else if (a.name.toLowerCase() < b.name.toLowerCase()) {
     return -1;
-  }
-    return 0;
+  } else {
+    return 0
+  };
 };
 
 function renderContactList(){
@@ -52,10 +52,13 @@ function newContactDetails(){
 }
 
 function removeContact(user){
+  let answer = confirm('Are you sure you want to remove this?')
+  if (answer === true){
   var x = CONTACTS_DATA.indexOf(user)
   CONTACTS_DATA.splice(x, 1);
   CONTACTS_DATA.sort(alphabetize)
   renderContactList();
+  }
 }
 
 function renderEdit(user){

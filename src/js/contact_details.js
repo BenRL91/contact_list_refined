@@ -9,7 +9,6 @@ export default class ContactDetails extends React.Component {
     editContact: PropTypes.func.isRequired
   };
   clickHandler(){
-    console.log(this.props.user.imageURL)
     let {editContact} = this.props
     editContact(this.props.user)
   }
