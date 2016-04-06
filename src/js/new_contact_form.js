@@ -5,10 +5,11 @@ import Dropzone from 'react-dropzone';
 export default class NewContactForm extends Component {
 
   static propTypes = {
-    addToContacts: PropTypes.func.isRequired
+    addToContacts: PropTypes.func.isRequired,
+    onCancel: PropTypes.func.isRequired
   }
-  constructor(addToContacts){
-    super(addToContacts)
+  constructor(addToContacts, onCancel){
+    super(addToContacts, onCancel)
       this.state = {
         preview: "../images/dropzoneHolder.png"
       }
@@ -19,7 +20,7 @@ export default class NewContactForm extends Component {
     })
   }
     dataHandler(newUser){
-      let {addToContacts} = this.props
+      let {addToContacts, onCancel} = this.props
       if (newUser.name
       && newUser.email
       && newUser.number
@@ -31,32 +32,35 @@ export default class NewContactForm extends Component {
       }
   }
   render() {
-    let {addToContacts} = this.props
+    let {addToContacts, onCancel} = this.props
     return (
-      <SimpleSerialForm className='ssf' onData={::this.dataHandler}>
-        <h1>Add New Murray</h1>
-        <Dropzone className='dropzone' onDrop={::this.dropHandler}>
-          <img className='previewImage' src={this.state.preview}/>
-        </Dropzone>
-        <input value={this.state.preview} type='hidden' name='imageURL'/>
-        <label>
-          Full Name:
-          <input type='text' name='name'/>
-        </label>
-        <label>
-          E-mail:
-          <input type='text' name='email'/>
-        </label>
-        <label>
-          Phone:
-          <input type='text' name='number'/>
-        </label>
-        <label>
-          Location:
-          <input type='text' name='location'/>
-        </label>
-        <button>Create Contact</button>
-      </SimpleSerialForm>
+      <div className='newConWrapper'>
+        <SimpleSerialForm className='ssf' onData={::this.dataHandler}>
+          <h1>Add New Murray</h1>
+          <Dropzone className='dropzone' onDrop={::this.dropHandler}>
+            <img className='previewImage' src={this.state.preview}/>
+          </Dropzone>
+          <input value={this.state.preview} type='hidden' name='imageURL'/>
+          <label>
+            Full Name:
+            <input type='text' name='name'/>
+          </label>
+          <label>
+            E-mail:
+            <input type='text' name='email'/>
+          </label>
+          <label>
+            Phone:
+            <input type='text' name='number'/>
+          </label>
+          <label>
+            Location:
+            <input type='text' name='location'/>
+          </label>
+          <button>Create Contact</button>
+        </SimpleSerialForm>
+        <button onClick={onCancel}>Cancel</button>
+      </div>
     );
   }
 }

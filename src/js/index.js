@@ -46,7 +46,9 @@ function addNewContact(newContact){
 
 function newContactDetails(){
   ReactDOM.render(
-    <NewContactForm addToContacts={addNewContact}/>,
+    <NewContactForm
+      addToContacts={addNewContact}
+      onCancel={renderContactList}/>,
     document.querySelector('.app')
   )
 }
