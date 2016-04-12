@@ -64,7 +64,7 @@ export default class NewContactForm extends Component {
             Location:
             <input type='text' name='location'/>
           </label>
-          <input type='hidden' name='id' defaultValue={Math.random()*10000}>
+          <input type='hidden' name='id' defaultValue={Math.random()*10000}/>
           <button>Create Contact</button>
         </SimpleSerialForm>
         <Link to='/'>Cancel</Link>
