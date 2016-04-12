@@ -14,7 +14,7 @@ function getContact(state, replace){
 render(
 <Router history={hashHistory}>
   <Route path='/' component={ContactList}/>
-    <Route path='/contact' component={ContactDetails}/>
+    <Route  path='/contact/:id' component={ContactDetails}/>
   <Route path='/new' component={NewContactForm}/>
   {/*<Route path='edit' component={EditContact}/>*/}
 </Router>

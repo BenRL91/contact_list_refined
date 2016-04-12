@@ -3,7 +3,6 @@ import React, {PropTypes} from 'react';
 import {USER_SHAPE} from './user_shape';
 import { Link, hashHistory} from 'react-router';
 import info from './contacts_data';
-let user = info[0]
 export default class ContactDetails extends React.Component {
   // static propTypes = {
   //   user: USER_SHAPE,
@@ -14,8 +13,19 @@ export default class ContactDetails extends React.Component {
     // let {editContact} = this.props
     // editContact(this.props.user)
   }
+
   render() {
+    let {id} = this.props.params;
+      let userCheck = info.filter(function(userInfo){
+        //  console.log(userInfo)
+        //  console.log(userInfo.id)
+        //  console.log(id)
+      if (userInfo.id === id){
+        return userInfo
+      }
+    })
     // let {user, goBack, editContact} = this.props
+let user = userCheck.pop()
     return (
       <div className='contact-details'>
         <div className='top'>

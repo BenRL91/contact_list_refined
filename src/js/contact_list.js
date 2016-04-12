@@ -16,7 +16,7 @@ export default class ContactList extends Component {
 
     return (
       <div className="conWrapper" key={user.imageURL}>
-        <Link to='/contact'><li key={user.name}>
+        <Link to={`/contact/${user.id}`}><li key={user.name}>
           <img src={user.imageURL}/>
           {user.name}
         </li>
