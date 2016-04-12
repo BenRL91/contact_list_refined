@@ -1,13 +1,15 @@
 import React, {Component, PropTypes} from 'react';
 import SimpleSerialForm from 'react-simple-serial-form';
 import Dropzone from 'react-dropzone';
+import info from './contacts_data';
+import { Link, hashHistory} from 'react-router';
 
 export default class NewContactForm extends Component {
 
-  static propTypes = {
-    addToContacts: PropTypes.func.isRequired,
-    onCancel: PropTypes.func.isRequired
-  }
+  // static propTypes = {
+  //   addToContacts: PropTypes.func.isRequired,
+  //   onCancel: PropTypes.func.isRequired
+  // }
   constructor(addToContacts, onCancel){
     super(addToContacts, onCancel)
       this.state = {
@@ -19,20 +21,25 @@ export default class NewContactForm extends Component {
       preview: file.preview
     })
   }
-    dataHandler(newUser){
-      let {addToContacts, onCancel} = this.props
-      if (newUser.name
-      && newUser.email
-      && newUser.number
-      && newUser.location
-      && newUser.imageURL){
-        addToContacts(newUser)
-      }else {
-        alert('All fields are required.')
-      }
+  dataHandler(data){
+    info.push(data);
+    hashHistory.push('/');
+
   }
+    // dataHandler(newUser){
+    //   let {addToContacts, onCancel} = this.props
+    //   if (newUser.name
+    //   && newUser.email
+    //   && newUser.number
+    //   && newUser.location
+    //   && newUser.imageURL){
+    //     addToContacts(newUser)
+    //   }else {
+    //     alert('All fields are required.')
+    //   }
+  // }
   render() {
-    let {addToContacts, onCancel} = this.props
+    // let {addToContacts, onCancel} = this.props
     return (
       <div className='newConWrapper'>
         <SimpleSerialForm className='ssf' onData={::this.dataHandler}>
@@ -59,7 +66,7 @@ export default class NewContactForm extends Component {
           </label>
           <button>Create Contact</button>
         </SimpleSerialForm>
-        <button onClick={onCancel}>Cancel</button>
+        <Link to='/'>Cancel</Link>
       </div>
     );
   }

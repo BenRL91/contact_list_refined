@@ -1,31 +1,35 @@
 //Contact List Page//
 import React, {Component, PropTypes} from 'react';
+// import { Link }  from 'react-router';
+import info from './contacts_data';
+import {Link, hashHistory} from 'react-router';
 
 export default class ContactList extends Component {
-  static propTypes = {
-    info: PropTypes.array.isRequired,
-    onContactSelect: PropTypes.func.isRequired,
-    setContactDetails: PropTypes.func.isRequired,
-    removeCon: PropTypes.func.isRequired
-  };
+  // static propTypes = {
+  //   info: PropTypes.array.isRequired,
+  //   onContactSelect: PropTypes.func.isRequired,
+  //   setContactDetails: PropTypes.func.isRequired,
+  //   removeCon: PropTypes.func.isRequired
+  // };
   makeListItem(user){
-    let {onContactSelect, removeCon} = this.props
+    // let {onContactSelect, removeCon} = this.props
 
     return (
       <div className="conWrapper" key={user.imageURL}>
-        <li key={user.name} onClick={onContactSelect.bind(null, user)}>
+        <Link to='/contact'><li key={user.name}>
           <img src={user.imageURL}/>
           {user.name}
         </li>
-        <button key={user.number} onClick={removeCon.bind(null, user)}>X</button>
+        </Link>
+        <button key={user.number}>X</button>
       </div>
     )}
   render() {
-    let {info, setContactDetails} = this.props
+    // let {info, setContactDetails} = this.props
     return (
       <div className='contact-list'>
         <h1>My Murrays</h1>
-        <button onClick={setContactDetails}>Add New Contact</button>
+        <Link to='/new'>Add New Contact</Link>
         <ul>
           {info.map(::this.makeListItem)}
         </ul>

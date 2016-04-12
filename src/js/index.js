@@ -1,21 +1,34 @@
 //Javascript Entry Point//
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 import ContactDetails from './contact_details';
 import ContactList from './contact_list';
 import CONTACTS_DATA from './contacts_data';
 import NewContactForm from './new_contact_form';
 import EditContact from './edit_contact';
+import {Router, Route, hashHistory} from 'react-router';
 
-function renderContactDetails(user){
-  ReactDOM.render(
-  <ContactDetails
-  user={user}
-  goBack={renderContactList}
-  editContact={renderEdit}/>,
-  document.querySelector('.app')
-)}
+function getContact(state, replace){
 
+}
+render(
+<Router history={hashHistory}>
+  <Route path='/' component={ContactList}/>
+    <Route path='/contact' component={ContactDetails}/>
+  <Route path='/new' component={NewContactForm}/>
+  {/*<Route path='edit' component={EditContact}/>*/}
+</Router>
+, document.querySelector('.app'))
+
+// function renderContactDetails(user){
+//   ReactDOM.render(
+//   <ContactDetails
+//   user={user}
+//   goBack={renderContactList}
+//   editContact={renderEdit}/>,
+//   document.querySelector('.app')
+// )}
+//
 function alphabetize(a, b) {
   if (a.name.toLowerCase() > b.name.toLowerCase()) {
     return 1;
@@ -25,34 +38,34 @@ function alphabetize(a, b) {
     return 0
   };
 };
-
-function renderContactList(){
-  CONTACTS_DATA.sort(alphabetize)
-  ReactDOM.render(
-  <ContactList
-  info={CONTACTS_DATA}
-  onContactSelect={renderContactDetails}
-  setContactDetails={newContactDetails}
-  removeCon={removeContact}
-  />,
-  document.querySelector('.app')
-)}
-
+//
+// function renderContactList(){
+//   CONTACTS_DATA.sort(alphabetize)
+//   ReactDOM.render(
+//   <ContactList
+//   info={CONTACTS_DATA}
+//   onContactSelect={renderContactDetails}
+//   setContactDetails={newContactDetails}
+//   removeCon={removeContact}
+//   />,
+//   document.querySelector('.app')
+// )}
+//
 function addNewContact(newContact){
   CONTACTS_DATA.push(newContact);
   CONTACTS_DATA.sort(alphabetize)
   renderContactList();
 }
-
-function newContactDetails(){
-  ReactDOM.render(
-    <NewContactForm
-      addToContacts={addNewContact}
-      onCancel={renderContactList}/>,
-    document.querySelector('.app')
-  )
-}
-
+//
+// function newContactDetails(){
+//   ReactDOM.render(
+//     <NewContactForm
+//       addToContacts={addNewContact}
+//       onCancel={renderContactList}/>,
+//     document.querySelector('.app')
+//   )
+// }
+//
 function removeContact(user){
   let answer = confirm('Are you sure you want to remove this?')
   if (answer === true){
@@ -62,16 +75,16 @@ function removeContact(user){
   renderContactList();
   }
 }
-
-function renderEdit(user){
-  ReactDOM.render(
-    <EditContact
-    user={user}
-    onCancel={renderContactDetails}
-    saveContact={saveAndRender}/>,
-    document.querySelector('.app')
-  )
-}
+//
+// function renderEdit(user){
+//   ReactDOM.render(
+//     <EditContact
+//     user={user}
+//     onCancel={renderContactDetails}
+//     saveContact={saveAndRender}/>,
+//     document.querySelector('.app')
+//   )
+// }
 
 function saveAndRender(user, editedUser){
   var x = CONTACTS_DATA.indexOf(user)
@@ -80,4 +93,4 @@ function saveAndRender(user, editedUser){
   CONTACTS_DATA.sort(alphabetize)
   renderContactDetails(editedUser)
 }
-renderContactList()
+// renderContactList()

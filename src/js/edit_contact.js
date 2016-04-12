@@ -2,13 +2,14 @@ import React, {PropTypes} from 'react';
 import {USER_SHAPE} from './user_shape';
 import SimpleSerialForm from 'react-simple-serial-form';
 import Dropzone from 'react-dropzone';
-
+import info from './contacts_data';
+let user = info[0]
 export default class EditContact extends React.Component {
-  static propTypes = {
-    user: USER_SHAPE,
-    onCancel: PropTypes.func.isRequired,
-    saveContact: PropTypes.func.isRequired
-  };
+  // static propTypes = {
+  //   user: USER_SHAPE,
+  //   onCancel: PropTypes.func.isRequired,
+  //   saveContact: PropTypes.func.isRequired
+  // };
   constructor(user, onCancel, saveContact){
     super(user, onCancel, saveContact)
       this.state = {
